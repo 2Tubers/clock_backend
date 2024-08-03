@@ -4,11 +4,14 @@ import bodyParser from "body-parser";
 import cors from 'cors';
 import env from 'dotenv';
 const app = express();
+env.config();
+
+const PORT=process.env.PORT || 5000
 
 app.use(cors());
   // Function to search for a track by name
   var songPreviewUrl="";
-  env.config();
+  
    
   async function searchTrack(songName) {
       try {
@@ -81,8 +84,8 @@ app.post('/', async (req, res) => {
   }
 });
 
-app.listen(5000, () => {
-  console.log('Example app listening on port 5000!');
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}!`);
 });
 
 
