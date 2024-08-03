@@ -73,7 +73,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.post(`${BASE_URL}`, async (req, res) => {
+app.post('/', async (req, res) => {
   try {
     const response = await searchTrack(req.body.name);
     // console.log(response);
